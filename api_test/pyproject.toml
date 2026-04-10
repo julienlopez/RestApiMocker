@@ -1,0 +1,6 @@
+[project]
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["."]
+bdd_features_base_dir = "features/"
