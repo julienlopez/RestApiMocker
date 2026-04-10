@@ -370,7 +370,7 @@ mod tests {
 
     #[test]
     fn all_conditions_must_match() {
-        let conditions = vec![
+        let conditions = [
             MockCondition {
                 source: ConditionSource::PathParam,
                 key: "id".into(),
@@ -449,7 +449,7 @@ mod tests {
     fn more_conditions_sorted_first() {
         use libcommon::MockConfig;
 
-        let mocks = vec![
+        let mocks = [
             MockConfig {
                 method: "GET".into(),
                 path_pattern: "/users/:id".into(),
