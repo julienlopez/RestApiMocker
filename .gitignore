@@ -1,2 +1,4 @@
 target/
 backend/public/
+api_test/__pycache__/
+api_test/.pytest_cache/

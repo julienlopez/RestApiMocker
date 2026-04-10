@@ -6,21 +6,18 @@ on:
   pull_request:
     branches: ["main"]
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   unit-tests:
     name: Rust unit tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
       - name: Cache Rust dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             ~/.cargo/registry
@@ -36,13 +33,13 @@ jobs:
     name: Python API tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
       - name: Cache Rust dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             ~/.cargo/registry
@@ -65,7 +62,7 @@ jobs:
         run: cargo build -p backend
 
       - name: Create public directory for backend
-        run: mkdir -p target/debug/public
+        run: mkdir -p backend/public
 
       - name: Run pytest
         run: pytest
