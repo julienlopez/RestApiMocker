@@ -1,0 +1,17 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./backend.Dockerfile
+    ports:
+      - 8090:8090
+      - 9090:9090
+    restart: always
+    volumes:
+      - ./backend:/app/backend
+      - ./libs:/app/libs
+    environment:
+      - PUBLIC_PORT=8090
+      - PRIVATE_PORT=9090
+include:
+  - ./test-proxy/docker-compose.yaml

@@ -1,0 +1,74 @@
+/* Mocks list */
+.mocks-empty {
+    color: #555;
+    font-style: italic;
+}
+
+.mock-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 0;
+    border-bottom: 1px solid #2a2d35;
+}
+
+.mock-entry-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.mock-status {
+    color: #7ec8ff;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.duplicate-btn {
+    background: #2a2d35;
+    color: #aaa;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 2px 10px;
+    cursor: pointer;
+    font-size: 0.8em;
+    white-space: nowrap;
+    margin-left: auto;
+}
+
+.duplicate-btn:hover {
+    background: #3a3d45;
+    color: #fff;
+    border-color: #4a8ecf;
+}
+
+.mock-conditions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-left: 4px;
+}
+
+.mock-condition-badge {
+    background: #1a3a5c;
+    border: 1px solid #4a8ecf;
+    border-radius: 4px;
+    color: #7ec8ff;
+    padding: 2px 8px;
+    font-family: monospace;
+    font-size: 0.78em;
+}
+
+.mock-body {
+    width: 100%;
+    margin: 4px 0 0 0;
+    padding: 6px 10px;
+    background: #1a1d24;
+    border: 1px solid #2a2d35;
+    border-radius: 4px;
+    color: #aaa;
+    font-size: 0.85em;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
