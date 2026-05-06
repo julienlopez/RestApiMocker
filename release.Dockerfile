@@ -21,7 +21,6 @@ COPY --from=builder /app/target/release/backend /app/backend/backend
 
 # expose the port 80
 EXPOSE 80
-EXPOSE 8090
 EXPOSE 9090
 
 CMD ["/app/backend/backend"]

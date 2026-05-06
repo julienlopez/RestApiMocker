@@ -24,7 +24,7 @@ async fn main() {
         .parse()
         .expect("Invalid port number for public server");
     let private_port: u16 = std::env::var("PRIVATE_PORT")
-        .unwrap_or_else(|_| "8090".to_string())
+        .unwrap_or_else(|_| "80".to_string())
         .parse()
         .expect("Invalid port number for internal server");
 
@@ -91,16 +91,10 @@ async fn main() {
                 url: "/internal/openapi.json".to_string(),
                 ..Default::default()
             }),
-        );
-    let ui = rocket::build()
-        .configure(rocket::Config {
-            address: std::net::Ipv4Addr::new(0, 0, 0, 0).into(),
-            port: 80,
-            ..Default::default()
-        })
+        )
         .mount("/", FileServer::from(relative!("public")));
 
-    tokio::join!(public.launch(), internal.launch(), ui.launch())
+    tokio::join!(public.launch(), internal.launch())
         .0
         .expect("Failed to launch servers");
 }
