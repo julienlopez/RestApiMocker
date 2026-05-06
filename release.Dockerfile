@@ -11,15 +11,15 @@ WORKDIR /app/backend
 RUN cargo build --release
 
 WORKDIR /app/frontend
-RUN dx bundle --platform web
+RUN dx bundle --platform web --release
 
 FROM alpine:latest
 
 WORKDIR /app
-COPY --from=builder /app/file-ui/target/dx/file-ui/release/web/public /app/public
-COPY --from=builder /app/backend/target/release/backend /app/backend
+COPY --from=builder /app/target/dx/frontend/release/web/public /app/public
+COPY --from=builder /app/target/release/backend /app/backend
 
 # expose the port 80
 EXPOSE 80
 
-CMD /app/backend
+CMD ["/app/backend"]
