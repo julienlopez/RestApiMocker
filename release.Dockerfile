@@ -1,7 +1,7 @@
 FROM rust:latest AS builder
 
 RUN cargo install cargo-binstall
-RUN cargo binstall dioxus-cli --no-confirm
+RUN cargo binstall dioxus-cli@0.7.7 --no-confirm
 
 WORKDIR /app/
 
