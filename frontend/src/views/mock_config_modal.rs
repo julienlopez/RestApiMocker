@@ -102,7 +102,12 @@ pub fn MockConfigModal(
         .unwrap_or_default();
     let initial_conditions: Vec<ConditionRow> = prefill
         .as_ref()
-        .map(|pf| pf.conditions.iter().map(ConditionRow::from_condition).collect())
+        .map(|pf| {
+            pf.conditions
+                .iter()
+                .map(ConditionRow::from_condition)
+                .collect()
+        })
         .unwrap_or_default();
 
     let mut param_flags = use_signal(|| initial_flags);

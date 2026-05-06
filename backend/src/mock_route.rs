@@ -101,7 +101,8 @@ pub fn mock_catcher(status: Status, req: &Request<'_>) -> Custom<String> {
                 m.method.eq_ignore_ascii_case(&method) && matches_pattern(&m.path_pattern, &path)
             })
             .collect();
-        candidates.sort_by(|a, b| b.conditions.len().cmp(&a.conditions.len()));
+        // candidates.sort_by(|a, b| b.conditions.len().cmp(&a.conditions.len()));
+        candidates.sort_by_key(|a| std::cmp::Reverse(a.conditions.len()));
 
         for mock in candidates {
             let path_params = extract_path_params(&mock.path_pattern, &path);
